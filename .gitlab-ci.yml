@@ -1,5 +1,5 @@
 variables:
-  HelmTemplateFolderName: game-cronjob-game-restart
+  HelmTemplateFolderName: game-cronjob-game
 
 stages:
   - publish
@@ -79,6 +79,7 @@ deploy-staging:
       artifacts: true
   only:
     - main
+  when: manual
   before_script:
     - export KUBECONFIG=$KubeConfig_Raypro_staging
   script:

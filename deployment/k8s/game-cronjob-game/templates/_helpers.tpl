@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "game-cronjob-game-restart.name" -}}
+{{- define "game-cronjob-game.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "game-cronjob-game-restart.fullname" -}}
+{{- define "game-cronjob-game.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "game-cronjob-game-restart.chart" -}}
+{{- define "game-cronjob-game.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "game-cronjob-game-restart.labels" -}}
-helm.sh/chart: {{ include "game-cronjob-game-restart.chart" . }}
-{{ include "game-cronjob-game-restart.selectorLabels" . }}
+{{- define "game-cronjob-game.labels" -}}
+helm.sh/chart: {{ include "game-cronjob-game.chart" . }}
+{{ include "game-cronjob-game.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "game-cronjob-game-restart.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "game-cronjob-game-restart.name" . }}
+{{- define "game-cronjob-game.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "game-cronjob-game.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "game-cronjob-game-restart.serviceAccountName" -}}
+{{- define "game-cronjob-game.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "game-cronjob-game-restart.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "game-cronjob-game.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
