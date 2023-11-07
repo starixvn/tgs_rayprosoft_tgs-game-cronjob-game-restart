@@ -23,8 +23,8 @@ spec:
                 - bash
                 - -c
                 - >-
-                  kubectl -n /{{ .Release.Namespace }} rollout restart deployment game-gamecommand &&
-                  kubectl -n /{{ .Release.Namespace }} rollout status deployment game-gamecommand &&
-                  kubectl -n /{{ .Release.Namespace }} rollout restart deployment game-gamecurrency &&
-                  kubectl -n /{{ .Release.Namespace }} rollout status deployment game-gamecurrency
+                  kubectl -n {{ .Release.Namespace }} rollout restart deployment game-gamecommand &&
+                  kubectl -n {{ .Release.Namespace }} rollout status deployment game-gamecommand &&
+                  kubectl -n {{ .Release.Namespace }} rollout restart deployment game-gamecurrency &&
+                  kubectl -n {{ .Release.Namespace }} rollout status deployment game-gamecurrency
 {{- end }}
