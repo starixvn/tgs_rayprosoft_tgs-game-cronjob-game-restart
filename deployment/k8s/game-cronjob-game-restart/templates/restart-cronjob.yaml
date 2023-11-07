@@ -23,8 +23,8 @@ spec:
                 - bash
                 - -c
                 - >-
-                  kubectl rollout restart deploy game-gamecommand &&
-                  kubectl rollout status deploy game-gamecommand &&
-                  kubectl rollout restart deploy game-gamecurrency &&
-                  kubectl rollout status deploy game-gamecurrency
+                  kubectl rollout restart deployments game-gamecommand &&
+                  kubectl rollout status deployments game-gamecommand &&
+                  kubectl rollout restart deployments game-gamecurrency &&
+                  kubectl rollout status deployments game-gamecurrency
 {{- end }}
