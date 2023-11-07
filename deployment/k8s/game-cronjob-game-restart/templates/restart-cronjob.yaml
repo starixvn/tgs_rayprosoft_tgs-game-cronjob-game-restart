@@ -24,7 +24,7 @@ spec:
                 - -c
                 - >-
                   kubectl rollout restart deploy game-gamecommand &&
-                  kubectl rollout status deployment game-gamecommand &&
+                  kubectl rollout status deploy game-gamecommand &&
                   kubectl rollout restart deploy game-gamecurrency &&
-                  kubectl rollout status deployment game-gamecurrency
+                  kubectl rollout status deploy game-gamecurrency
 {{- end }}
