@@ -11,8 +11,8 @@ image:
   tag: ""
 
 imagePullSecrets: []
-nameOverride: "game-cronjob-game"
-fullnameOverride: "game-cronjob-game"
+nameOverride: "game-cronjob-game-restart"
+fullnameOverride: "game-cronjob-game-restart"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -83,6 +83,6 @@ affinity: {}
 
 restart:
   enabled: false
-  serviceAccount: game-cronjob-game
+  serviceAccount: game-cronjob-game-restart
   annotations: {}
   schedule: 0 0 * * *

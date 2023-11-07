@@ -1,5 +1,5 @@
 variables:
-  HelmTemplateFolderName: game-cronjob-game
+  HelmTemplateFolderName: game-cronjob-game-restart
 
 stages:
   - publish
