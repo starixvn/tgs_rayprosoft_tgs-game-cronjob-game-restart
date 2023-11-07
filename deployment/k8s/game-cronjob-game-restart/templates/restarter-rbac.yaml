@@ -23,7 +23,8 @@ rules:
     resources: 
       - deployments
     resourceNames: 
-      - {{ include "game-cronjob-game-restart.fullname" . }}
+      - game-gamecommand
+      - game-gamecurrency
     verbs: 
       - get
       - patch
